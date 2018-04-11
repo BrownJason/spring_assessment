@@ -12,6 +12,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 @Entity
 public class Users {
@@ -22,6 +25,7 @@ public class Users {
 	
 	private String name;
 	
+	@JsonIgnore
 	private String password;
 	
 	@Temporal(TemporalType.DATE)
@@ -49,10 +53,12 @@ public class Users {
 		this.name = name;
 	}
 
+	@JsonProperty("password")
 	public String getPassword() {
 		return password;
 	}
 
+	@JsonIgnore
 	public void setPassword(String password) {
 		this.password = password;
 	}

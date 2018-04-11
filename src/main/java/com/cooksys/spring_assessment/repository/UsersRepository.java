@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.cooksys.spring_assessment.dto.AddressesDto;
+import com.cooksys.spring_assessment.dto.UsersDto;
 import com.cooksys.spring_assessment.entity.Addresses;
 import com.cooksys.spring_assessment.entity.Users;
 
@@ -18,5 +18,7 @@ public interface UsersRepository extends JpaRepository<Users, Long>  {
 	Collection<Users> findUsersRelationsByRelationsId(Long id);
 
 	Collection<Users> findUsersByAddressId(Long id);
+
+	Users Id(Long id);
 
 }
