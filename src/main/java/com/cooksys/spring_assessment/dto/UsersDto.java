@@ -37,6 +37,7 @@ public class UsersDto {
 		this.name = name;
 	}
 
+	//Will not see password on return but is still set
 	@JsonIgnore
 	@JsonProperty("password")
 	public String getPassword() {

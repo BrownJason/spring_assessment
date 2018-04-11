@@ -17,8 +17,12 @@ public interface AddressesRepository extends JpaRepository<Addresses, Long>{
 
 	List<Addresses> findAddressesById(Long id);
 
-	Addresses StreetAndCityAndState(String street, String city, String state);
-
 	Collection<Addresses> findAddressByResidentsId(Long id);
+
+	void deleteAllUsersByResidentsId(Long id);
+
+	List<Addresses> findAllResidentsById(Long id);
+
+	int deleteResidentsById(Long id);
 
 }

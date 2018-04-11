@@ -18,4 +18,12 @@ public interface UsersRepository extends JpaRepository<Users, Long>  {
 
 	Collection<Users> findUsersByAddressId(Long id);
 
+	void deleteAllRelationsIdById(Long id);
+
+	void deleteAllAddressIdByAddressId(Long id);
+
+	List<Users> findAllRelationsById(Long id);
+
+	Users deleteRelationsById(Long id);
+
 }

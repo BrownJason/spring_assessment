@@ -31,7 +31,7 @@ public class Users {
 	@Temporal(TemporalType.DATE)
 	private Date birthday;
 	
-	@ManyToOne(optional = false, fetch = FetchType.LAZY)
+	@ManyToOne
 	private Addresses address;
 	
 	@ManyToMany
@@ -53,6 +53,7 @@ public class Users {
 		this.name = name;
 	}
 
+	//Will not see password on return but is still set
 	@JsonIgnore
 	@JsonProperty("password")
 	public String getPassword() {

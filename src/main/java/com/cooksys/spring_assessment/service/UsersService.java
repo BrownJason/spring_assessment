@@ -62,7 +62,14 @@ public class UsersService {
 
 	public void delete(Long id) {
 		// TODO Auto-generated method stub
+//		Tried this also but didn't work the same as the address
+//		Users user = new Users();
+//		for(Users relations : usersRepo.findAllRelationsById(id)) {
+//			relations.getRelations().add(user);
+//			relations.getRelations().remove(usersRepo.deleteRelationsById(id));
+//		}
 		usersRepo.deleteById(id);
+		
 	}
 
 	@Transactional
