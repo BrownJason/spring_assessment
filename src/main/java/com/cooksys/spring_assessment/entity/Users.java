@@ -3,8 +3,8 @@ package com.cooksys.spring_assessment.entity;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
@@ -31,10 +31,10 @@ public class Users {
 	@Temporal(TemporalType.DATE)
 	private Date birthday;
 	
-	@ManyToOne
+	@ManyToOne(optional = false, fetch = FetchType.LAZY)
 	private Addresses address;
 	
-	@ManyToMany(cascade= {CascadeType.ALL})
+	@ManyToMany
 	private List<Users> relations;
 
 	public Long getId() {

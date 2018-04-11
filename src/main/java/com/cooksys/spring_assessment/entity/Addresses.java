@@ -3,6 +3,7 @@ package com.cooksys.spring_assessment.entity;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -20,7 +21,8 @@ public class Addresses {
 	
 	private String state;
 	
-	@OneToMany(mappedBy ="address")
+	@OneToMany(mappedBy ="address", 
+			fetch = FetchType.LAZY)
 	private List<Users> residents;
 
 	public Long getId() {
