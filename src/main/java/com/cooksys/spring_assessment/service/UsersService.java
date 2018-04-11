@@ -67,10 +67,11 @@ public class UsersService {
 
 	@Transactional
 	public void addRelations(Users user, Users relationUsers) {
-		if(user.getRelations().contains(relationUsers)) {
+		if(user.getRelations().contains(relationUsers) && relationUsers.getRelations().contains(user)) {
 			// Do not add again!
 		} else {
 			user.getRelations().add(relationUsers);
+			relationUsers.getRelations().add(user);
 		}
 	}
 	
