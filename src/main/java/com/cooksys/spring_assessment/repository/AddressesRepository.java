@@ -21,6 +21,4 @@ public interface AddressesRepository extends JpaRepository<Addresses, Long>{
 
 	Collection<Addresses> findAddressByResidentsId(Long id);
 
-	void deleteUserByResidentsId(Long id);
-
 }

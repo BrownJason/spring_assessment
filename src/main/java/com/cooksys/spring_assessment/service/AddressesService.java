@@ -3,8 +3,6 @@ package com.cooksys.spring_assessment.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.transaction.Transactional;
-
 import org.springframework.stereotype.Service;
 
 import com.cooksys.spring_assessment.dto.AddressesDto;
@@ -59,7 +57,6 @@ public class AddressesService {
 	}
 
 	public void delete(Long id) {
-		usersRepo.deleteAddressByAddressId(id);
 		addressRepo.deleteById(id);
 	}
 
