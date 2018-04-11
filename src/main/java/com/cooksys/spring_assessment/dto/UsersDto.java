@@ -37,12 +37,12 @@ public class UsersDto {
 		this.name = name;
 	}
 
+	@JsonIgnore
 	@JsonProperty("password")
 	public String getPassword() {
 		return password;
 	}
 
-	@JsonIgnore
 	public void setPassword(String password) {
 		this.password = password;
 	}
