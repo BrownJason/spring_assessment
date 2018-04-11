@@ -57,7 +57,7 @@ public class UsersService {
 
 	public void put(Long id, UsersDto usersDto) {
 		usersDto.setId(id);
-		usersRepo.save(userMap.toEntity(usersDto));
+		usersRepo.save(userMap.toEntity(usersDto)).getId();
 	}
 
 	public void delete(Long id) {
@@ -69,6 +69,10 @@ public class UsersService {
 	public void addRelations(Users user, Users relationUsers) {
 		if(user.getRelations().contains(relationUsers) && relationUsers.getRelations().contains(user)) {
 			// Do not add again!
+		} else if (user.getRelations().contains(relationUsers)){
+			relationUsers.getRelations().add(user);
+		} else if (relationUsers.getRelations().contains(user)) {
+			user.getRelations().add(relationUsers);
 		} else {
 			user.getRelations().add(relationUsers);
 			relationUsers.getRelations().add(user);

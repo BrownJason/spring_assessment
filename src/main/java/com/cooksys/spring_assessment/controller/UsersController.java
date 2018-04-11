@@ -56,13 +56,13 @@ public class UsersController {
 	}
 	
 	@PostMapping("{id}/relations/{relationId}")
-	public void attachRelations(@PathVariable(name="id") Users user, @PathVariable(name="relationId") Users relationUsers) {
-		usersService.addRelations(user, relationUsers);
+	public void attachRelations(@PathVariable Users id, @PathVariable Users relationId) {
+		usersService.addRelations(id, relationId);
 	}
 	
 	@PostMapping("{id}/address/{addressId}")
-	public void attachAddress(@PathVariable(name="id") Users user, @PathVariable(name="addressId") Addresses address) {
-		usersService.addAddress(user, address);
+	public void attachAddress(@PathVariable Users id, @PathVariable Addresses addressId) {
+		usersService.addAddress(id, addressId);
 	}
 	
 	@PutMapping("{id}")
