@@ -3,10 +3,14 @@ package com.cooksys.spring_assessment.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
 import com.cooksys.spring_assessment.dto.AddressesDto;
 import com.cooksys.spring_assessment.dto.UsersDto;
+import com.cooksys.spring_assessment.entity.Addresses;
+import com.cooksys.spring_assessment.entity.Users;
 import com.cooksys.spring_assessment.mapper.AddressesMapper;
 import com.cooksys.spring_assessment.mapper.UsersMapper;
 import com.cooksys.spring_assessment.repository.AddressesRepository;
@@ -61,4 +65,23 @@ public class UsersService {
 		usersRepo.deleteById(id);
 	}
 
+	@Transactional
+	public void addRelations(Users user, Users relationUsers) {
+		if(user.getRelations().contains(relationUsers)) {
+			// Do not add again!
+		} else {
+			user.getRelations().add(relationUsers);
+		}
+	}
+	
+	@Transactional
+	public void addAddress(Users user, Addresses address) {
+		if(user.getAddress() != null) {
+			// Does not add another User
+		} else {
+			user.setAddress(address);
+			address.getResidents().add(user);
+		}
+		
+	}
 }
